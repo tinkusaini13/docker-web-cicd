@@ -4,7 +4,7 @@ pipeline{
         stage("git checkout")
         {
             steps{
-                    git url: '.https://github.com/tinkusaini13/docker-web-cicd.git', branch: 'main'
+                    git url: 'https://github.com/tinkusaini13/docker-web-cicd.git', branch: 'main'
                  }
           }
         stage("create custom image using dockerfile")
