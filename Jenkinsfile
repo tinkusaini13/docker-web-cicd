@@ -10,20 +10,22 @@ pipeline{
         stage("create custom image using dockerfile")
         {
             steps{
-                sh "docker build -t webserver ."
+                sh "docker build -t web ."
             }
         }
        
         stage("create docker container use webserver image")
         {
             steps{
-                sh "docker run -it --name=mywebserver webserver /bin/bash"
+                sh "docker run  --name=nginx web /bin/bash"
             }   
             }
          stage("verify web server running or not ")
         {
             steps{
-                sh "curl localhost"
+                sh "docker images"
+                sh "docker ps -a"
+                sh "ip a"
             }   
             }
     }
